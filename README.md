@@ -19,6 +19,8 @@ multibooker/
 						authentication.signout.controller.coffee
 					authentication.module.coffee
 					authentication.router.coffee
+			controllers/
+				application.index.controller.coffee
 			application.module.coffee
 			application.router.coffee
 		public/
@@ -112,6 +114,12 @@ addressesRouter
 		.delete addressesDeleteController
 </pre>
 
+addresses.find.controller.coffee:
+
+<pre>
+addressesFindController = module.exports = (request, response) ->
+	response.send 'list of addresses'
+</pre>
 
 
 
