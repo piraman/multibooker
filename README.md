@@ -56,31 +56,37 @@ multibooker/
 	distribution/
 		development/
 		production/
-
+	tasks/
+	Gruntfile.coffee
+	package.json
+	README.md
+	.gitignore
 </pre>
 
 application.module.coffee:
 
 <pre>
 express = require 'express'
-application = do express
-addresses = require './modules/addresses/addresses.module'
-authentication = require './modules/authetication/authentication.module'
+applicationModule = do express
+addressesModule = require './modules/addresses/addresses.module'
+autheticationModule = require './modules/authetication/authentication.module'
+applicationRouter = require './application.router'
 
-application.use addresses
-application.use authetication
+applicationModule.use addressesModule
+applicationModule.use autheticationModule
+applicationRouter.use applicationRouter
 
-application.listen 3000
+applicationModule.listen 3000
 </pre>
 
 addresses.module.coffee:
 
 <pre>
 express = require 'express'
-addresses = module.exports = do express
+addressesModule = module.exports = do express
 addressesRouter = './addresses.router'
 
-addresses.use addressesRouter
+addressesModule.use addressesRouter
 </pre>
 
 addresses.router.coffee:
